@@ -15,6 +15,7 @@ jobs:
         BRANCH: gh-pages
         FOLDER: book/html
         BUILD_SCRIPT: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
           cargo install mdbook --vers '0.3.1' --debug --force
           cargo install mdbook-linkcheck --vers '0.3.1' --debug --force
           mdbook build
