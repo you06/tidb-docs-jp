@@ -1,0 +1,21 @@
+name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: book/html
+        BUILD_SCRIPT: |
+          cargo install mdbook --vers '0.3.1' --debug --force
+          cargo install mdbook-linkcheck --vers '0.3.1' --debug --force
+          mdbook build
+          cargo test --all --manifest-path=./examples/Cargo.toml --target-dir ./target
