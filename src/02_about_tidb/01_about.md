@@ -1,0 +1,3 @@
+# TiDBの概要
+
+`TiDB`は、[PingCAP](https://pingcap.com/en/) 研究開発の分散型`HTAP(Hybrid Transactional and Analytical Processing)`データベース。 [`RDBMS`](https://ja.wikipedia.org/wiki/%E9%96%A2%E4%BF%82%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0)と[`NoSQL`](https://ja.wikipedia.org/wiki/NoSQL)の最高の特徴は統合しました。`TiDB`と`MySQL`は互換出来ます、そして無制限の拡張機能、強力な一貫性と高可用性を達成できる。`OLTP (Online Transactional Processing)`と`OLAP (Online Analytical Processing)`のシーンの解決策は申し出は`TiDB`の目標です。
