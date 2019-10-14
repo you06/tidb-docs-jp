@@ -11,9 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        cargo install mdbook --vers '0.3.1' --debug --force
-        cargo install mdbook-linkcheck --vers '0.3.1' --debug --force
+        make prepare
     - name: Run build & test
       run: |
-        mdbook build
-        cargo test --all --manifest-path=./examples/Cargo.toml --target-dir ./target
+        make doc
