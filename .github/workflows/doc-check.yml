@@ -1,0 +1,19 @@
+name: doc-check
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        cargo install mdbook --vers '0.3.1' --debug --force
+        cargo install mdbook-linkcheck --vers '0.3.1' --debug --force
+    - name: Run build & test
+      run: |
+        mdbook build
+        cargo test --all --manifest-path=./examples/Cargo.toml --target-dir ./target
