@@ -2,7 +2,7 @@
 
 `TiDB`は、[PingCAP](https://pingcap.com/en/) 研究開発の分散型`HTAP(Hybrid Transactional and Analytical Processing)`データベース。 [`RDBMS`](https://ja.wikipedia.org/wiki/%E9%96%A2%E4%BF%82%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0)と[`NoSQL`](https://ja.wikipedia.org/wiki/NoSQL)の最高の特徴は統合しました。`TiDB`と`MySQL`は互換できます、そして無制限の拡張機能、強力な一貫性と高可用性を達成できる。`OLTP (Online Transactional Processing)`と`OLAP (Online Analytical Processing)`のシーンの解決策は申し出は`TiDB`の目標です。
 
-TiDB 機能/特徴：
+TiDB 特徴：
 
 - `MySQL`との互換性は高い
 
@@ -28,3 +28,33 @@ TiDB 機能/特徴：
 
 - クラウドネイティブSQLデータベース
     `TiDB`はクラウド用に設計されたデータベース、パブリッククラウド、プライベートクラウド、およびハイブリッドクラウドのサポートそれで展開、構成、および保守が簡単です。
+
+`TiDB`の目標は100%の`OLTP`と80%の`OLAP`のシナリをサポートする。複雑の`OLAP`分析は[`TiSpark`](#)を使用できます。
+
+`TiDB`はコードに侵入しない。クラシックのデータベースミドルウェアあるいはサブデータベースとサブテーブルを置換する。同時に、開発者と保守業務者はデータベースのスケール問題を考えしない、それためビジネス開発もと集中した。研究開発の効率性大きく向上させることがある。
+
+# TiDBの始めかた
+
+`TiDB`はローカルまたはクラウドプラットフォームに展開できます、パブリッククラウド、プライベートクラウド、あるいはハイブリッドクラウドのサポートをサポートできます。実際のシナリオに応じて、`TiDB`クラスターを展開するの方法を選択してください。
+
+- [`Ansible`展開](#)：物理マシンの運用環境の`TiDB`は`Ansible`で展開する必要があります。
+
+- [`Ansible`オフライン展開](#)：もしインターネットにアクセスできません、`Ansible`オフライン展開もおけ。
+
+- [`TiDB Operator`展開](#)：`Kubernetes`環境の展開は、`TiDB Operator`使用します。`AWS`、`GKE`、`Aliyun`はサポートします。
+
+- [`Docker Compose`展開](#)：`TiDB`の特徴をテストたいだけ、または開発環境に使用なら、`Docker Compose`は`TiDB`クラスターをローカルに迅速に展開できる。運用環境には適していません。
+
+- [`Docker`展開](#)：`Docker`は`TiDB`を展開でくます、運用環境には適していません。
+
+# ソースコード
+
+- [TiDB](https://github.com/pingcap/tidb)
+
+- [TiKV](https://github.com/tikv/tikv)
+
+- [PD](https://github.com/pingcap/pd)
+
+- [TiSpark](https://github.com/pingcap/tispark)
+
+- [TiDB Operator](https://github.com/pingcap/tidb-operator)
