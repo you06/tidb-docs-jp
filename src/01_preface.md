@@ -2,13 +2,11 @@
 
 ## 序文
 
-`TiDB`は、[PingCAP](https://pingcap.com/en/) 研究開発の分散型データベース。TiDBはMySQLプロトコルを使用します、それでMySQLユーザーにとっても簡単です。
+`TiDB`は、[PingCAP](https://pingcap.com/en/) 研究開発の分散型データベースである。`TiDB`は`MySQL`プロトコルと互換性がある、`MySQL`ユーザーにとって使いやすいことである。
 
-## オフィシャルのドキュメント
+## 公式ドキュメント
 
-PingCAP 申し出中国語と英語のドキュメント。だからもし中国語または英語上手から、オフィシャルのドキュメントは素晴らしいです。
-
-オフィシャルのドキュメントのリンク
+以下は中国語公式ドキュメントと英語公式ドキュメントのリンクである。中国語または英語が上手く方は直接に読むことはおすすめです。
 
 - [中国語](https://pingcap.com/docs-cn/)
 
@@ -16,12 +14,20 @@ PingCAP 申し出中国語と英語のドキュメント。だからもし中国
 
 ## 日本語ドキュメントについて
 
-この翻訳は個人の興味です、そして一人メンテナンスです。僕は日本語の初心者です、もし不適切な説明または構文エラーがいる、プルリクエストまたは私にメールしてください。
+この通訳は個人的な趣味で、[自分](https://github.com/you06)と[SakuramiRin](https://github.com/SakuramiRin)様はメンテナンスしています。日本語の初心者なので、説明または構文が不適切な場合、プルリクエストや以下のメールをいただければ心より感谢します。
+
+- [tongmu@pingcap.com](mailto:tongmu@pingcap.com)
 
 ## バージョン
 
-現在`TiDB`の安定したのバージョンは[`release-3.0`](https://github.com/pingcap/tidb/tree/release-3.0)と[`release-3.1`](https://github.com/pingcap/tidb/tree/release-3.1)です。そしてこのドキュメントは[`release-3.0`](https://github.com/pingcap/tidb/tree/release-3.0)についてです。
+現在`TiDB`のステェィブルバージョンは二つである。
+
+- [`release-3.0`](https://github.com/pingcap/tidb/tree/release-3.0)
+
+- [`release-3.1`](https://github.com/pingcap/tidb/tree/release-3.1)（おすすめ）。
+
+二つがあるが、公式ドキュメントはどちらでも適用されます。
 
 ## プログレス
 
-僕の自由時間はあまりたくさんいない、だからこのドキュメントの翻訳速度は保証できません。僕は頑張ります！
+あんまり時間がありませんので、通訳の進捗率は遅くになるかもしれないですが、頑張りたいとおもいます！

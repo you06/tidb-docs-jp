@@ -1,6 +1,9 @@
 [book]
 title = "TiDB Document Japanese"
-authors = ["you06"]
+authors = [
+  "you06",
+  "SakuramiRin"
+]
 
 [build]
 create-missing = false
@@ -12,3 +15,6 @@ create-missing = false
 [output.linkcheck]
 follow-web-links = true
 traverse-parent-directories = false
+exclude = [
+  "mailto:tongmu@pingcap.com"
+]
