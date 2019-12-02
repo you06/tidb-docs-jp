@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>TiDBとは何か？ - TiDB Document Japanese</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../01_preface.html"><strong aria-hidden="true">1.</strong> 序文</a></li><li class="expanded "><a href="../02_about_tidb/01_about.html" class="active"><strong aria-hidden="true">2.</strong> TiDBについて</a></li><li><ol class="section"><li class="expanded "><a href="../02_about_tidb/01_about.html" class="active"><strong aria-hidden="true">2.1.</strong> TiDBとは何か？</a></li></ol></li><li class="expanded "><a href="../03_main_concept/01_main_structure.html"><strong aria-hidden="true">3.</strong> メイン概念</a></li><li><ol class="section"><li class="expanded "><a href="../03_main_concept/01_main_structure.html"><strong aria-hidden="true">3.1.</strong> メイン構造</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">TiDB Document Japanese</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#tidbの概要" id="tidbの概要">TiDBの概要</a></h1>
+<p><code>TiDB</code>は、<a href="https://pingcap.com/en/">PingCAP</a> 研究開発の分散型<code>HTAP(Hybrid Transactional and Analytical Processing)</code>データベースであり、 <a href="https://ja.wikipedia.org/wiki/%E9%96%A2%E4%BF%82%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0"><code>RDBMS</code></a>と<a href="https://ja.wikipedia.org/wiki/NoSQL"><code>NoSQL</code></a>の最高の機能を組み合わせています。<code>TiDB</code>は<code>MySQL</code>と相互運用可能であり、機能拡張性、一貫性、高可用性ような属性を持っています。<code>OLTP (Online Transactional Processing)</code>および<code>OLAP (Online Analytical Processing)</code>の場合でワンストップソリューションを提供することは目标として追求しております。</p>
+<p>TiDB 特徴：</p>
+<ul>
+<li>
+<p><code>MySQL</code>と高い互換性</p>
+<p><a href="https://pingcap.com/docs/v3.0/reference/mysql-compatibility/">ほとんどの場合</a>、コードを変更せずに移植できます。もしサブデータベースとサブテーブルを使用すると、移植ツールがあってサポートします。</p>
+</li>
+<li>
+<p>無制限の拡張機能</p>
+<p>ノードを追加するだけで、パフォーマンスが無制限で拡張するになっていますし、必要なノードを拡張すれば、高並行性と大規模データのシナリオの処理は簡単になります。</p>
+</li>
+<li>
+<p><a href="https://ja.wikipedia.org/wiki/%E5%88%86%E6%95%A3%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B6%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3">分散トランザクション</a></p>
+<p><code>TiDB</code>は、標準の<a href="https://ja.wikipedia.org/wiki/ACID_(%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E7%A7%91%E5%AD%A6)"><code>ACID</code></a>トランザクションを完全にサポートしています。</p>
+<p>公式ドキュメントにはこの一文しかありませんが、もう一つつたえたいのは、分散トランザクションのサポートにより、データの変更は成功になったら全てのノードがすぐに有効です。全てのノードが一つという思いがあったら良いです。</p>
+</li>
+<li>
+<p>金融レベルな高い可用性</p>
+<p>クラシックのマスタースレーブスキームに比べて、<code>Raft</code>の分散コヒーレンスプロトコルアプローチは終始一貫のことを保証します。そして、レプリカが多く存在すれば、障害が発生の時に人工の操作が要らなくて自動回復ことができます。</p>
+</li>
+<li>
+<p>ワンストップ<code>HTAP</code>ソリューション</p>
+<p><code>TiDB</code>は典型的な<code>OLTP</code>ラインアンドバンクデータベースとともに、強いの<code>OLAP</code>機能があります。<code>TiSpark</code>を配合して、1つのストレージは<code>OLTP</code>と<code>OLAP</code>を同時に処理し、面倒な<a href="https://ja.wikipedia.org/wiki/Extract/Transform/Load"><code>ETL</code></a>プロセスが要りません。</p>
+</li>
+<li>
+<p>クラウドネイティブSQLデータベース</p>
+<p>TiDBは、クラウドデータベース、パブリッククラウド、プライベートクラウド、およびハイブリッドクラウドをサポートします。展開、構成、および保守することは簡単です。</p>
+</li>
+</ul>
+<p><code>TiDB</code>は100%の<code>OLTP</code>と80%の<code>OLAP</code>のシナリをサポートすることを目指して、複雑な<code>OLAP</code>分析が要ると<a href="#"><code>TiSpark</code></a>を使用できます。</p>
+<p><code>TiDB</code>はコードに侵入しなくて、クラシックのデータベースミドルウェアあるいはサブデータベースとサブテーブルを置換します。そして、開発者と保守業務者はデータベースのスケール問題を考え必要はなくて、ビジネスの開発ことをもと集中します。研究開発の効率性大きく向上させることがある。</p>
+<h1><a class="header" href="#tidbの始める" id="tidbの始める">TiDBの始める</a></h1>
+<p><code>TiDB</code>はローカルまたはクラウドプラットフォームに展開できます。パブリッククラウド、プライベートクラウド、あるいはハイブリッドクラウドもサポートできます。実際のシナリオに応じて、TiDBクラスターを展開するの方法を選択してください。</p>
+<ul>
+<li>
+<p><a href="#"><code>Ansible</code>展開</a>：プロダクション運用環境で展開する場合、<code>Ansible</code>を使用して<code>TiDB</code>クラスターをデプロイしなければならない。</p>
+</li>
+<li>
+<p><a href="#"><code>Ansible</code>オフライン展開</a>：デプロイメント環境がネットワークにアクセスすることができない場合は、<code>Ansible</code>オフライン展開することもできます。</p>
+</li>
+<li>
+<p><a href="#"><code>TiDB Operator</code>展開</a>：<code>Kubernetes</code>環境の展開は、<code>TiDB Operator</code>使用します。<code>AWS</code>、<code>GKE</code>、<code>Aliyun</code>はサポートします。</p>
+</li>
+<li>
+<p><a href="#"><code>Docker Compose</code>展開</a>：<code>TiDB</code>をテスト、<code>TiDB</code>の新たな特徴を試す、またはスタンディング環境に使用する場合は、<code>Docker Compose</code>は<code>TiDB</code>クラスターをローカルに迅速に展開することができます。（プロジェクト環境には適していません）</p>
+</li>
+<li>
+<p><a href="#"><code>Docker</code>展開</a>：<code>Docker</code>を使用して<code>TiDB</code>クラスターをデプロイできます。（プロジェクト環境には適していません）</p>
+</li>
+</ul>
+<h1><a class="header" href="#ソースコード" id="ソースコード">ソースコード</a></h1>
+<ul>
+<li>
+<p><a href="https://github.com/pingcap/tidb">TiDB</a></p>
+</li>
+<li>
+<p><a href="https://github.com/tikv/tikv">TiKV</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/pd">PD</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tispark">TiSpark</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pingcap/tidb-operator">TiDB Operator</a></p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../01_preface.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../02_about_tidb/01_about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../01_preface.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../02_about_tidb/01_about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
