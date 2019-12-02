@@ -24,7 +24,11 @@ before_cache:
   - rm -rf ./target/debug/{deps,.fingerprint}/[0-9][0-9]_[0-9][0-9]_*
   - rm -f ./target/.rustc_info.json
 
-env:
-  RUSTINFRA_DEPLOY_DIR: book/html
-import:
-  - rust-lang/simpleinfra/travis-configs/static-websites.yml
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  local_dir: book/html
+  on:
+    branch: master
