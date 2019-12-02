@@ -16,7 +16,6 @@ before_script:
   - cargo install-update -a
 
 script:
-  - bash ci/spellcheck.sh list
   - mdbook build
   - cargo test --all --manifest-path=./examples/Cargo.toml --target-dir ./target
 
