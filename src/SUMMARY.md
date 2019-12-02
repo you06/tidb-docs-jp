@@ -4,3 +4,4 @@
   - [TiDBとは何か？](02_about_tidb/01_about.md)
 - [メイン概念](03_main_concept/01_main_structure.md)
   - [メイン構造](03_main_concept/01_main_structure.md)
+  - [コア機能](03_main_concept/02_core_features.md)
