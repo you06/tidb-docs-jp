@@ -16,5 +16,6 @@ create-missing = false
 follow-web-links = true
 traverse-parent-directories = false
 exclude = [
-  "mailto:tongmu@pingcap.com"
+  "mailto:tongmu@pingcap.com",
+  "mailto:info@pingcap.com"
 ]

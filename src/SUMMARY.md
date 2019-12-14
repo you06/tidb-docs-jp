@@ -4,3 +4,5 @@
   - [TiDBとは何か？](02_about_tidb/01_about.md)
 - [メイン概念](03_main_concept/01_main_structure.md)
   - [メイン構造](03_main_concept/01_main_structure.md)
+- [ブロック](blog/tidb-wasm.md)
+  - [TiDB-Wasm 原理と実現](blog/tidb-wasm.md)
