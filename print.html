@@ -7,13 +7,24 @@
         
         <meta name="robots" content="noindex" />
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
@@ -21,8 +32,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -38,7 +50,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -82,8 +94,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="01_preface.html"><strong aria-hidden="true">1.</strong> 序文</a></li><li class="expanded "><a href="02_about_tidb/01_about.html"><strong aria-hidden="true">2.</strong> TiDBについて</a></li><li><ol class="section"><li class="expanded "><a href="02_about_tidb/01_about.html"><strong aria-hidden="true">2.1.</strong> TiDBとは何か？</a></li></ol></li><li class="expanded "><a href="03_main_concept/01_main_structure.html"><strong aria-hidden="true">3.</strong> メイン概念</a></li><li><ol class="section"><li class="expanded "><a href="03_main_concept/01_main_structure.html"><strong aria-hidden="true">3.1.</strong> メイン構造</a></li></ol></li><li class="expanded "><a href="blog/tidb-wasm.html"><strong aria-hidden="true">4.</strong> ブロック</a></li><li><ol class="section"><li class="expanded "><a href="blog/tidb-wasm.html"><strong aria-hidden="true">4.1.</strong> TiDB-Wasm 原理と実現</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01_preface.html"><strong aria-hidden="true">1.</strong> 序文</a></li><li class="chapter-item expanded "><a href="02_about_tidb/01_about.html"><strong aria-hidden="true">2.</strong> TiDBについて</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02_about_tidb/01_about.html"><strong aria-hidden="true">2.1.</strong> TiDBとは何か？</a></li><li class="chapter-item expanded "><a href="02_about_tidb/02_whats-new-in-tidb-4.0.html"><strong aria-hidden="true">2.2.</strong> 4.0の新しい特徴</a></li></ol></li><li class="chapter-item expanded "><a href="03_main_concept/01_main_structure.html"><strong aria-hidden="true">3.</strong> メイン概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="03_main_concept/01_main_structure.html"><strong aria-hidden="true">3.1.</strong> メイン構造</a></li></ol></li><li class="chapter-item expanded "><a href="blog/tidb-wasm.html"><strong aria-hidden="true">4.</strong> ブロック</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="blog/tidb-wasm.html"><strong aria-hidden="true">4.1.</strong> TiDB-Wasm 原理と実現</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -92,37 +104,36 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">TiDB Document Japanese</h1>
+                    <h1 class="menu-title">TiDB Document Japanese</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -319,6 +330,151 @@
 </li>
 <li>
 <p><a href="https://github.com/pingcap/tidb-operator">TiDB Operator</a></p>
+</li>
+</ul>
+<h1><a class="header" href="#40の新しい特徴" id="40の新しい特徴">4.0の新しい特徴</a></h1>
+<p><code>TiDB v4.0</code>（以下略記<code>4.0</code>）が2020年5月28日にリリースされ、使いやすさ、安定性、パーフォーマンス、セキュリティおよび機能の方が大幅に改善されました。この記事では、改善されたことの簡単にを説明します、ユーザーは、実際のユースケースに基づいて<code>4.0</code>にアップグレードするかどうかを決定する必要があります。</p>
+<h2><a class="header" href="#コア機能" id="コア機能">コア機能</a></h2>
+<h3><a class="header" href="#スケジューリング機能" id="スケジューリング機能">スケジューリング機能</a></h3>
+<ul>
+<li>ホットスポットの対応ために、より多くのメトリックが考慮されます。これによに、書き込み、読み取りトラフィックに基づくスケジューリング基準しながら、新しい<code>key</code>のメトリックは考慮する。新しいスケジューリング方法は、トラフィックのみを考慮する場合と比較して、<code>CPU</code>リソースの使用率の不均一性の問題を大幅に改善できます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/tidb-scheduling">スケジューリング</a>をご覧ください。</li>
+</ul>
+<h3><a class="header" href="#ストレージエンジン" id="ストレージエンジン">ストレージエンジン。</a></h3>
+<ul>
+<li>
+<p><code>TiFlash</code>は<code>Realtime HTAP</code>機能用に<code>TiDB</code>によって追加されたコンポーネントです。<code>TiFlash</code>は<code>Multi-Raft Learner</code>プロトコルを使用して<code>TiKV</code>からリアルタイムでデータリードレプリカをコピーし、行方向ストレージエンジン<code>TiKV</code>とカラム型ストレージ<code>TiFlash</code>の完全一貫性を確保します。<code>TiKV</code>と<code>TiFlash</code>を異なるマシンにデプロイして、<code>HTAP</code>リソース割り当てと分離の問題を解決できます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/tiflash-overview">TiFlash</a>をご覧ください。</p>
+</li>
+<li>
+<p><code>TiKV　v4.0</code>や新しいストレージフォーマットにある、幅の広いテーブルデータのエンコードとデコードの効率を向上させる。</p>
+</li>
+</ul>
+<h3><a class="header" href="#tidb-dashboard" id="tidb-dashboard">TiDB Dashboard</a></h3>
+<p>DBAは<code>TiDB Dashboard</code>の<code>UI</code>を介してクラスターのトポロジー、構成情報、ログ情報、ハードウェア情報、オペレーティングシステム情報、スロークエリ情報、<code>SQL</code>情報、診断レポートなど。この情報は、DBAがデータベースシステムをすばやく理解して分析するのに役立ちます。詳細は以下の通りです。</p>
+<ul>
+<li>
+<p>クラスター情報は、<code>TiDB</code>、<code>TiKV</code>、<code>PD</code>、<code>TiFlash</code>およびインスタンスの実行状態。</p>
+</li>
+<li>
+<p><code>Key Visualizer</code>は<code>TiDB</code>クラスターの一定期間にトラフィックに関する履歴情報を取得して、DBAが<code>TiDB</code>クラスターの使用モードとホットスポットを分析します。</p>
+</li>
+<li>
+<p><code>SQL</code>ステートメント情報は、データベースに実行されたすべての<code>SQL</code>と、実行回数、実行時間の記録して、ユーザーがデータベースの<code>SQL</code>実行ステータスをすばやく分析し、ホットスポットを含む<code>SQL</code>を見つける。</p>
+</li>
+<li>
+<p><code>Slow Queries</code>は、クラスターのすべてのスロークエリステートメントを取得して、問題の解決に役立ちます。</p>
+</li>
+<li>
+<p><code>Diagnostic Report</code>は、データベースが定期的に起こりうる障害を自動的に診断し、その診断結果とクラスター関連のメトリックを診断レポートにまとめます。診断レポートはWebページであり、ブラウザに保存した後、オフラインで読むおよび共有できます。</p>
+</li>
+<li>
+<p><code>Log Search &amp; Download</code>は、クラスターログを視覚的に把握して、DBAによるシステム問題の分析、メンテナンスの効率を向上させる。</p>
+</li>
+</ul>
+<h3><a class="header" href="#デプロイとメンテナンスのツール" id="デプロイとメンテナンスのツール">デプロイとメンテナンスのツール</a></h3>
+<p><code>TiUP</code>は、<code>TiDB 4.0</code>でリリースされたデプロイとメンテナンスのツール。<code>TiUP</code>の主な役割は<code>TiDB</code>に関連するすべてのパッケージ、コンポーネント管理、ローカルデプロイ(Playground)、クラスター管理(Cluster)、アップグレードフレームワーク(TUF)、オフラインデプロイメントなどの機能があり、<code>TiDB</code>のインストール、デプロイメント、メンテナンスをツール化し、DBAの効率を向上させる。</p>
+<ul>
+<li>
+<p>コンポーネント管理機能は、ワンクリックのコンポーネント情報クエリ、インストール、アップグレード、アンインストールなどの機能を提供し、DBAがTiDBのすべてのコンポーネントを管理しやすくします。</p>
+</li>
+<li>
+<p>コンポーネント管理。コンポーネント情報を照会し、クラスターを簡単にインストール、アップグレード、およびアンインストールできます。DBAにとって、<code>TiDB</code>コンポーネントの管理はよりもはるかに簡単です。</p>
+</li>
+<li>
+<p>クラスター管理機能(Cluster)は、複数の<code>TiDB</code>クラスターの展開、拡張、縮小、アップグレード、構成変更、開始、停止、再起動、クラスターの情報を取得の機能であり。</p>
+</li>
+<li>
+<p>ローカルデプロイ(Playground)は、<code>TiDB</code>の基本機能をすばやく体験と理解するために、ローカル環境にやすいで<code>TiDB</code>クラスターをデプロイして。注：この機能はプロダクション運用環境に使えない。</p>
+</li>
+<li>
+<p>プライベートミラー管理(Mirror)は、もしオフィシャルのミラーアクセスできないので、TiUPはプライベートミラーを構築するための方法を提供し、オフライン展開機能を提供します。</p>
+</li>
+<li>
+<p>パーフォーマンス試験の機能(Benchmark)は、<code>TPC-C</code>および<code>TPC-H</code>パフォーマンステストのワークロードを提供します。自動に展開と試験の機能があります。</p>
+</li>
+</ul>
+<h3><a class="header" href="#トランザクション" id="トランザクション">トランザクション</a></h3>
+<ul>
+<li>
+<p>ペシミスティックのトランザクションが正式なリリースして、デフォルトモードで。ペシミスティックのトランザクションは<code>Read Committed</code>の分離レベルと<code>SELECT FOR UPDATE NOWAIT</code>をサポートする。詳しくは<a href="https://docs.pingcap.com/tidb/stable/pessimistic-transaction">ペシミスティックのトランザクション</a>をご覧ください。</p>
+</li>
+<li>
+<p>大きなトランザクションをサポートして、トランザクションのサイズ制限が<code>100 MB</code>から<code>10 GB</code>に増加しました、楽観的およびペシミスティックの両方がサポートされます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/transaction-overview#transaction-size-limit">トランザクションのサイズ制限</a>をご覧ください。</p>
+</li>
+</ul>
+<h3><a class="header" href="#sql-機能" id="sql-機能">SQL 機能</a></h3>
+<ul>
+<li>
+<p><code>SQL</code>プラン管理の<code>SQL Bind</code>を自動キャプチャと進化をサポートする、実行プランの使いやすさと安定性を向上させます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/sql-plan-management"><code>SQL</code>プラン管理</a>をご覧ください。</p>
+</li>
+<li>
+<p>15の新しい<code>SQL Hint</code>が追加され、オプティマイザの実行プランの生成とクエリ実行時のエンジンの動作を制御します。詳しくは<a href="https://docs.pingcap.com/tidb/stable/optimizer-hints"><code>SQL Hint</code></a>をご覧ください。</p>
+</li>
+<li>
+<p><code>SELECT INTO outfile</code>ステートメントをサポートし、テーブルデータを指定したファイルにエクスポートできます。<code>LOAD DATA</code>を使用すると、データベース間でデータを簡単にインポート/エクスポートできます。</p>
+</li>
+<li>
+<p>カスタムシーケンスをサポートし、<code>CACHE/NO_CACHE</code>と<code>CYCLE/NO_CYCLE</code>オプションをサポート、ユーザーはシーケンスを使用してID作成できます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/sql-statement-create-sequence"><code>Sequence</code></a>をご覧ください。</p>
+</li>
+<li>
+<p>新しい<code>Flashback</code>は、誤って<code>Truncate</code>されたテーブルを復元する。</p>
+</li>
+<li>
+<p><code>OOM</code>を回避するには、<code>Join</code>と<code>Sort</code>の中間結果をディスクに書き込みます、システムの安定性を向上させる。</p>
+</li>
+<li>
+<p><code>EXPLAIN</code>と<code>EXPLAIN ANALYZE</code>の表示を改善して、より多くの情報を表示して、トラブルシューティングの効率を向上させます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/sql-statement-explain-analyze"><code>EXPLAIN ANALYZE</code></a>と<a href="https://docs.pingcap.com/tidb/stable/sql-statement-explain"><code>EXPLAIN</code></a>をご覧ください。</p>
+</li>
+<li>
+<p><code>Index Merge</code>をサポートする。<code>Index Merge</code>は新しいテーブルデータアクセスメソッド。単一のテーブルを含むクエリの場合、複数のインデックスデータを自動的に読み取りにオプティマイザ、その結果を合併して、パフォーマンスを向上させます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/query-execution-plan#indexmerge-example"><code>Index Merge</code></a>をご覧ください。</p>
+</li>
+<li>
+<p><code>TiDB</code>カラムを<code>AUTO_RANDOM</code>のキーの属性をサポートする。ホットスポットの問題の解決を助ける、<code>MySQL</code>ユーザーのマイグレーションのコストを節約することができる。詳しくは<a href="https://docs.pingcap.com/tidb/stable/auto-random"><code>AUTO_RANDOM</code>のキー</a>をご覧ください。</p>
+</li>
+<li>
+<p>クラスターのトポロジー、構成情報、ログ情報、ハードウェア情報、オペレーティングシステム情報、スロークエリ情報、<code>SQL</code>情報のテーブルを追加する。DBAがデータベースシステムをすばやく理解して分析するのに役立ちます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/information-schema"><code>Information Schema</code></a>と<a href="https://docs.pingcap.com/tidb/stable/information-schema-sql-diagnostics"><code>SQL Diagnosis</code></a>をご覧ください。詳細は以下の通りです。</p>
+<ul>
+<li>データベースシステムテーブル
+<ul>
+<li><code>cluster_info</code>のテーブルは、クラスターのトポロジーの情報を保存する。</li>
+<li><code>cluster_log</code>のテーブルは、クラスターのログの情報を保存する。</li>
+<li><code>cluster_hardware</code>と<code>cluster_hardware</code>のテーブルは、クラスターのハードウェアとオペレーティングシステムの情報を保存する。</li>
+</ul>
+</li>
+<li>スロークエリ、<code>SQL</code>情報のテーブル
+<ul>
+<li><code>cluster_slow_query</code>のテーブルは、グローバルのスロークエリの情報を保存する。</li>
+<li><code>cluster_processlist</code>のテーブルは、グローバルのプロセスリストの情報を保存する。</li>
+<li><code>inspection_result</code>のテーブルは、システムのボトルネックを自動的に分析し、DBAがパフォーマンス分析レポートを役立ちます。障害分析の効率を向上させる。</li>
+<li><code>metrics_summary</code>と<code>metric_summary_by_label</code>テーブルは、システムの全てのメトリックの情報を保存する、DBAが<code>SQL</code>を介してメトリックの読みますおよび過去のデータと比較する。</li>
+<li><code>inspection_summary</code>テーブルは、複数のデータリンクとアクセスリンク中のさまざまな主要な監視メトリックを保存する。DBAが読み取り、書き込みなどのリンクの障害を分析できます。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#文字セットと照合順序" id="文字セットと照合順序">文字セットと照合順序</a></h3>
+<p><code>TiDB 4.0</code>は大文字小文字を区別しません<code>utf8mb4_general_ci</code>とアクセントを区別しない<code>utf8_general_ci，详情参阅</code>をサポートする。詳しくは<a href="https://docs.pingcap.com/tidb/stable/character-set-and-collation">文字セットと照合順序</a>をご覧ください。</p>
+<h3><a class="header" href="#セキュリティ" id="セキュリティ">セキュリティ</a></h3>
+<ul>
+<li>
+<p>クライアントとサーバー、コンポーネント間の暗号化された通信を改善し、コネクタの安全を保証する。受信と送信されたデータがアタッカーによって読み取られたり改変されたりしないように保護します。証明書ベースの認証、オンラインで証明書を更新する、<code>TLS</code>証明書の<code>CommonName</code>属性を確認してなど。</p>
+</li>
+<li>
+<p>透過的データ暗号化(TDE)は<code>TiDB</code>の新機能です、許可されているアプリケーションにデータを自動的に復号化して。TDEはファイルに対して、ディスク書き込み前に暗号化し、メモリに読み取り前に復号化して。<code>AES128-CTR</code>、<code>AES192-CTR</code>、<code>AES256-CTR</code>の暗号化アルゴリズムおよび<code>AWS KMS</code>にキーの管理をサポートする。詳しくは<a href="https://docs.pingcap.com/tidb/stable/encryption-at-rest">保存時の暗号化</a>をご覧ください。</p>
+</li>
+</ul>
+<h3><a class="header" href="#バックアップと復元" id="バックアップと復元">バックアップと復元</a></h3>
+<p>バックアップの所要時間を短縮するテクニックは、単一の<code>TiDB</code>クラスターをバックアップと復元できます。高速の完全バックアップと復元をサポートし、データのソートして、範囲による分割をサポート。詳しくは<a href="https://docs.pingcap.com/tidb/stable/backup-and-restore-tool">バックアップと復元</a>をご覧ください。</p>
+<h3><a class="header" href="#サービスレベル" id="サービスレベル">サービスレベル</a></h3>
+<ul>
+<li>
+<p><code>Prepare/Execute</code>リクエストの実行プランのキャッシュをサポートして、<code>SQL</code>実行効率を向上させる。詳しくは<a href="https://docs.pingcap.com/tidb/stable/sql-prepare-plan-cache"><code>Prepare/Execute</code>プランのキャッシュ</a>をご覧ください。</p>
+</li>
+<li>
+<p>新しいのレッドプールを実現します、スレッドプールの数を減らし、リクエストのスケジュールは最適化した。<code>TiDB</code>のパフォーマンスを向上させます。</p>
+</li>
+<li>
+<p><code>Follower Read</code>は<code>Raft</code>プロトコルの完全一貫性を確保に基づ、<code>follower</code>ロールからデータを読み取ります、クラスターのスループットを改善し、<code>leader</code>ロールのロードを減らした。<code>Follower Read</code>ロードバランスのテクニック、<code>follower</code>ロールは完全一貫性を保証もできます。詳しくは<a href="https://docs.pingcap.com/tidb/stable/follower-read"><code>Follower Read</code></a>をご覧ください。</p>
 </li>
 </ul>
 <h1><a class="header" href="#tidbメイン構造" id="tidbメイン構造">TiDBメイン構造</a></h1>
@@ -1014,10 +1170,10 @@ UPDATE person SET birthday='20171010' WHERE name='tom';
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 
