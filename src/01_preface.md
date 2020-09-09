@@ -8,9 +8,9 @@
 
 以下は中国語公式ドキュメントと英語公式ドキュメントのリンクである。中国語または英語が上手く方は直接に読むことはおすすめです。
 
-- [中国語](https://pingcap.com/docs-cn/)
+- [中国語](https://docs.pingcap.com/zh/tidb/stable)
 
-- [英語](https://pingcap.com/docs/)
+- [英語](https://docs.pingcap.com/tidb/stable)
 
 ## 日本語ドキュメントについて
 
@@ -20,13 +20,15 @@
 
 ## バージョン
 
-現在`TiDB`のステェィブルバージョンは二つである。
+現在`TiDB`のステェィブルバージョンは三つである。
+
+- [`release-4.0`](https://github.com/pingcap/tidb/tree/release-4.0)（おすすめ）
+
+- [`release-3.1`](https://github.com/pingcap/tidb/tree/release-3.1)
 
 - [`release-3.0`](https://github.com/pingcap/tidb/tree/release-3.0)
 
-- [`release-3.1`](https://github.com/pingcap/tidb/tree/release-3.1)（おすすめ）。
-
-二つがあるが、公式ドキュメントはどちらでも適用されます。
+三つがあるが、公式ドキュメントはどちらでも適用されます。
 
 ## プログレス
 
